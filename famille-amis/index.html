@@ -1,1228 +1,1423 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laury-Ann & Cédric · 23 mai 2026</title>
-  <meta property="og:title" content="Laury-Ann & Cédric · Mariage · 23 mai 2026">
-  <meta property="og:description" content="Retrouvez ici toutes les informations utiles pour notre mariage.">
-  <meta name="theme-color" content="#2A4035">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ivory:       #FAF8F2;
-      --ivory-dark:  #F3F0E7;
-      --deep-green:  #2A4035;
-      --mid-green:   #3D6052;
-      --sage:        #5C7A66;
-      --light-sage:  #8FAF95;
-      --sand:        #C4A87A;
-      --sand-light:  rgba(196,168,122,0.2);
-      --text:        #1C1C1A;
-      --text-light:  #6B6960;
-      --border:      rgba(42,64,53,0.12);
-      --white:       #ffffff;
-    }
-
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-
-    body {
-      background: var(--ivory);
-      color: var(--text);
-      font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    /* ────────────── NAV ────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 28px;
-      height: 60px;
-      background: rgba(250,248,242,0.94);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--deep-green);
-      letter-spacing: 0.01em;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.67rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      text-decoration: none;
-      transition: color 0.2s;
-      white-space: nowrap;
-    }
-
-    .nav-links a:hover { color: var(--deep-green); }
-
-    .nav-burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px 2px;
-      background: none;
-      border: none;
-      z-index: 101;
-    }
-
-    .nav-burger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--deep-green);
-      transition: all 0.3s;
-    }
-
-    .nav-burger.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-burger.active span:nth-child(2) { opacity: 0; }
-    .nav-burger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-    /* Mobile drawer */
-    .nav-drawer {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: var(--ivory);
-      z-index: 99;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-    }
-
-    .nav-drawer.open { display: flex; }
-    .nav-drawer a {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-style: italic;
-      color: var(--deep-green);
-      text-decoration: none;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-
-    .nav-drawer.open a {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .nav-drawer.open a:nth-child(1) { transition-delay: 0.05s; }
-    .nav-drawer.open a:nth-child(2) { transition-delay: 0.10s; }
-    .nav-drawer.open a:nth-child(3) { transition-delay: 0.15s; }
-    .nav-drawer.open a:nth-child(4) { transition-delay: 0.20s; }
-    .nav-drawer.open a:nth-child(5) { transition-delay: 0.25s; }
-
-    /* ────────────── HERO ────────────── */
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 100px 28px 64px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Decorative tropical leaves */
-    .leaf {
-      position: absolute;
-      pointer-events: none;
-      fill: var(--deep-green);
-      opacity: 0.055;
-    }
-
-    .leaf-tl { top: -80px; left: -100px; width: 340px; transform: rotate(-18deg); }
-    .leaf-br { bottom: -60px; right: -80px; width: 280px; transform: rotate(15deg) scaleX(-1); }
-    .leaf-ml { top: 38%; left: -50px; width: 200px; transform: rotate(8deg); opacity: 0.04; }
-
-    .hero-eyebrow {
-      font-size: 0.67rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 28px;
-      animation: fadeUp 0.9s ease both;
-    }
-
-    .hero-names {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: clamp(3.2rem, 14vw, 6rem);
-      line-height: 1;
-      color: var(--deep-green);
-      animation: fadeUp 0.9s 0.08s ease both;
-    }
-
-    .hero-amp {
-      display: block;
-      font-size: 0.55em;
-      color: var(--sand);
-      line-height: 1.1;
-      margin: 4px 0;
-    }
-
-    .hero-sub {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.95rem, 3vw, 1.15rem);
-      font-style: italic;
-      color: var(--text-light);
-      max-width: 360px;
-      margin: 20px auto 0;
-      animation: fadeUp 0.9s 0.16s ease both;
-    }
-
-    /* Ornament */
-    .ornament {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      justify-content: center;
-      margin: 28px 0;
-      animation: fadeUp 0.9s 0.22s ease both;
-    }
-
-    .ornament-line { width: 40px; height: 1px; background: var(--sand); }
-    .ornament-diamond {
-      width: 6px; height: 6px;
-      background: var(--sand);
-      transform: rotate(45deg);
-    }
-
-    /* Countdown */
-    .countdown {
-      display: flex;
-      align-items: flex-start;
-      gap: 0;
-      justify-content: center;
-      margin-bottom: 44px;
-      animation: fadeUp 0.9s 0.30s ease both;
-    }
-
-    .c-unit {
-      text-align: center;
-      padding: 0 18px;
-    }
-
-    .c-num {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(2.2rem, 8vw, 3rem);
-      color: var(--deep-green);
-      line-height: 1;
-    }
-
-    .c-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-top: 5px;
-    }
-
-    .c-sep {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      color: var(--sand);
-      opacity: 0.5;
-      align-self: flex-start;
-      margin-top: 4px;
-      line-height: 1;
-    }
-
-    /* Hero buttons */
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      animation: fadeUp 0.9s 0.38s ease both;
-    }
-
-    .btn-main {
-      display: inline-block;
-      background: var(--deep-green);
-      color: white;
-      text-decoration: none;
-      padding: 16px 42px;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      transition: background 0.25s, transform 0.2s;
-    }
-
-    .btn-main:hover { background: var(--mid-green); transform: translateY(-2px); }
-
-    .btn-ghost {
-      background: none;
-      border: none;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      cursor: pointer;
-      text-decoration: none;
-      border-bottom: 1px solid var(--sand);
-      padding-bottom: 2px;
-      transition: color 0.2s;
-    }
-
-    .btn-ghost:hover { color: var(--deep-green); }
-
-    .hero-note {
-      margin-top: 36px;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      animation: fadeUp 0.9s 0.46s ease both;
-    }
-
-    /* ────────────── SECTIONS ────────────── */
-    .section-wrap {
-      padding: 88px 28px;
-    }
-
-    .section-wrap.alt { background: var(--ivory-dark); }
-
-    .section-inner {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .s-eyebrow {
-      display: block;
-      font-size: 0.63rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 14px;
-    }
-
-    .s-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(1.9rem, 7vw, 2.7rem);
-      color: var(--deep-green);
-      line-height: 1.15;
-      margin-bottom: 12px;
-    }
-
-    .s-title em { font-style: italic; }
-
-    .s-rule {
-      width: 44px;
-      height: 1px;
-      background: var(--sand);
-      margin-bottom: 36px;
-    }
-
-    /* ────────────── TIMELINE ────────────── */
-    .timeline { position: relative; padding-left: 36px; }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 9px;
-      top: 6px; bottom: 6px;
-      width: 1px;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        var(--light-sage) 8%,
-        var(--light-sage) 92%,
-        transparent 100%
-      );
-    }
-
-    .t-item {
-      position: relative;
-      margin-bottom: 52px;
-    }
-
-    .t-item:last-child { margin-bottom: 0; }
-
-    .t-dot {
-      position: absolute;
-      left: -30px;
-      top: 5px;
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      border: 1.5px solid var(--sage);
-      background: var(--ivory-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .t-dot::after {
-      content: '';
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--sage);
-    }
-
-    .t-dot.gold { border-color: var(--sand); }
-    .t-dot.gold::after { background: var(--sand); }
-
-    .t-time {
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 6px;
-    }
-
-    .t-time.gold-text { color: var(--sand); }
-
-    .t-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--deep-green);
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-
-    .t-body {
-      font-size: 0.87rem;
-      color: var(--text-light);
-      line-height: 1.75;
-    }
-
-    .t-address {
-      display: inline-flex;
-      align-items: flex-start;
-      gap: 7px;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.95rem;
-      color: var(--text);
-      margin: 10px 0 4px;
-    }
-
-    .t-note {
-      display: flex;
-      gap: 8px;
-      font-size: 0.82rem;
-      color: var(--text-light);
-      margin-top: 8px;
-    }
-
-    .t-note::before { content: '—'; color: var(--sand); flex-shrink: 0; }
-
-    .t-closing {
-      margin-top: 14px;
-      padding: 22px 22px;
-      border-left: 3px solid var(--sand);
-      background: linear-gradient(135deg, rgba(196,168,122,0.06), transparent);
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--deep-green);
-      line-height: 1.65;
-    }
-
-    /* GPS button */
-    .btn-gps {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 14px;
-      padding: 11px 20px;
-      background: transparent;
-      border: 1px solid var(--sage);
-      color: var(--sage);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.22s;
-    }
-
-    .btn-gps:hover { background: var(--deep-green); border-color: var(--deep-green); color: white; }
-
-    /* ────────────── INFO CARDS ────────────── */
-    .info-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .info-card {
-      position: relative;
-      padding: 24px 24px 22px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .info-card::before {
-      content: attr(data-num);
-      position: absolute;
-      top: 10px; right: 16px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: var(--deep-green);
-      opacity: 0.05;
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .ic-tag {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 8px;
-    }
-
-    .ic-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      color: var(--deep-green);
-      margin-bottom: 6px;
-    }
-
-    .ic-addr {
-      font-size: 0.84rem;
-      color: var(--text-light);
-      line-height: 1.55;
-    }
-
-    .ic-note {
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-      font-size: 0.79rem;
-      color: var(--text-light);
-      font-style: italic;
-    }
-
-    /* ────────────── VOYAGE ────────────── */
-    .voyage-quote {
-      padding: 26px 26px;
-      background: linear-gradient(135deg, rgba(42,64,53,0.04), rgba(196,168,122,0.07));
-      border: 1px solid rgba(196,168,122,0.28);
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--deep-green);
-      line-height: 1.8;
-      margin-bottom: 36px;
-    }
-
-    .voyage-desc {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--text-light);
-      line-height: 1.85;
-      border-left: 2px solid var(--sand);
-      padding-left: 20px;
-      margin-bottom: 40px;
-    }
-
-    .v-subtitle {
-      font-size: 0.63rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 16px;
-    }
-
-    .flight-list { margin-bottom: 36px; }
-
-    .flight-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .flight-row:first-child { border-top: 1px solid var(--border); }
-
-    .flight-icon {
-      font-size: 1.15rem;
-      color: var(--sand);
-      width: 24px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .flight-info { flex: 1; }
-
-    .flight-cities {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--deep-green);
-    }
-
-    .flight-time {
-      font-size: 0.78rem;
-      color: var(--text-light);
-      margin-top: 2px;
-    }
-
-    .flight-date {
-      font-size: 0.72rem;
-      color: var(--text-light);
-      text-align: right;
-      min-width: 54px;
-    }
-
-    .accomm-note {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      font-style: italic;
-      margin-top: 12px;
-      margin-bottom: 40px;
-    }
-
-    .activities {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .activity {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 15px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      font-size: 0.82rem;
-      color: var(--text);
-      line-height: 1.35;
-    }
-
-    .activity::before {
-      content: '✦';
-      color: var(--sand);
-      font-size: 0.48rem;
-      flex-shrink: 0;
-    }
-
-    /* ────────────── FOOTER ────────────── */
-    footer {
-      background: var(--deep-green);
-      padding: 56px 28px 48px;
-      text-align: center;
-    }
-
-    .footer-names {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-weight: 300;
-      font-size: 2rem;
-      color: white;
-      margin-bottom: 6px;
-    }
-
-    .footer-date {
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 24px;
-    }
-
-    .footer-msg {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.45);
-      max-width: 300px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* Leaf footer decoration */
-    .footer-leaf {
-      width: 80px;
-      opacity: 0.08;
-      margin: 0 auto 24px;
-      fill: white;
-    }
-
-    /* ────────────── GPS MODAL ────────────── */
-    .modal-bg {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(15,15,12,0.65);
-      z-index: 300;
-      align-items: flex-end;
-      backdrop-filter: blur(6px);
-    }
-
-    .modal-bg.open { display: flex; }
-
-    .modal-sheet {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--ivory);
-      border-radius: 18px 18px 0 0;
-      padding: 20px 24px 36px;
-      animation: sheetUp 0.32s cubic-bezier(0.22,1,0.36,1) both;
-    }
-
-    .modal-handle {
-      width: 40px;
-      height: 3.5px;
-      background: rgba(42,64,53,0.2);
-      border-radius: 2px;
-      margin: 0 auto 24px;
-    }
-
-    .modal-head { margin-bottom: 22px; }
-
-    .modal-label {
-      font-size: 0.63rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 4px;
-    }
-
-    .modal-addr-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--deep-green);
-    }
-
-    .modal-options { display: flex; flex-direction: column; gap: 10px; }
-
-    .modal-opt {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 18px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      text-decoration: none;
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .modal-opt:hover { border-color: var(--sage); background: rgba(92,122,102,0.04); }
-
-    .modal-opt-icon {
-      width: 38px; height: 38px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-
-    .modal-opt-name {
-      font-size: 0.92rem;
-      color: var(--text);
-      font-weight: 400;
-    }
-
-    .modal-cancel {
-      width: 100%;
-      margin-top: 12px;
-      padding: 14px;
-      background: transparent;
-      border: 1px solid var(--border);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      color: var(--text-light);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .modal-cancel:hover { border-color: var(--deep-green); color: var(--deep-green); }
-
-    /* ────────────── ANIMATIONS ────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes sheetUp {
-      from { transform: translateY(60px); opacity: 0; }
-      to   { transform: translateY(0);    opacity: 1; }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.in { opacity: 1; transform: translateY(0); }
-
-    /* ────────────── RESPONSIVE ────────────── */
-    @media (max-width: 560px) {
-      .nav-links { display: none; }
-      .nav-burger { display: flex; }
-
-      .hero { padding: 90px 22px 56px; }
-      .section-wrap { padding: 70px 22px; }
-      .activities { grid-template-columns: 1fr; }
-      .c-unit { padding: 0 12px; }
-    }
-
-    @media (min-width: 561px) {
-      .nav-drawer { display: none !important; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laury-Ann & Cédric · 23 mai 2026</title>
+    <meta property="og:title" content="Laury-Ann & Cédric · Mariage · 23 mai 2026">
+    <meta property="og:description" content="Retrouvez ici toutes les informations utiles pour notre mariage.">
+    <meta name="theme-color" content="#2A4035">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ivory: #FAF8F2;
+            --ivory-dark: #F3F0E7;
+            --deep-green: #2A4035;
+            --mid-green: #3D6052;
+            --sage: #5C7A66;
+            --light-sage: #8FAF95;
+            --sand: #C4A87A;
+            --sand-light: rgba(196, 168, 122, 0.2);
+            --text: #1C1C1A;
+            --text-light: #6B6960;
+            --border: rgba(42, 64, 53, 0.12);
+            --white: #ffffff;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background: var(--ivory);
+            color: var(--text);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ────────────── NAV ────────────── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            height: 60px;
+            background: rgba(250, 248, 242, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--deep-green);
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.67rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--deep-green);
+        }
+
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px 2px;
+            background: none;
+            border: none;
+            z-index: 101;
+        }
+
+        .nav-burger span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--deep-green);
+            transition: all 0.3s;
+        }
+
+        .nav-burger.active span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
+        }
+
+        .nav-burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-burger.active span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
+        }
+
+        /* Mobile drawer */
+        .nav-drawer {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--ivory);
+            z-index: 99;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .nav-drawer.open {
+            display: flex;
+        }
+
+        .nav-drawer a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--deep-green);
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .nav-drawer.open a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-drawer.open a:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+
+        .nav-drawer.open a:nth-child(2) {
+            transition-delay: 0.10s;
+        }
+
+        .nav-drawer.open a:nth-child(3) {
+            transition-delay: 0.15s;
+        }
+
+        .nav-drawer.open a:nth-child(4) {
+            transition-delay: 0.20s;
+        }
+
+        .nav-drawer.open a:nth-child(5) {
+            transition-delay: 0.25s;
+        }
+
+        /* ────────────── HERO ────────────── */
+        .hero {
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 28px 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative tropical leaves */
+        .leaf {
+            position: absolute;
+            pointer-events: none;
+            fill: var(--deep-green);
+            opacity: 0.055;
+        }
+
+        .leaf-tl {
+            top: -80px;
+            left: -100px;
+            width: 340px;
+            transform: rotate(-18deg);
+        }
+
+        .leaf-br {
+            bottom: -60px;
+            right: -80px;
+            width: 280px;
+            transform: rotate(15deg) scaleX(-1);
+        }
+
+        .leaf-ml {
+            top: 38%;
+            left: -50px;
+            width: 200px;
+            transform: rotate(8deg);
+            opacity: 0.04;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.67rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 28px;
+            animation: fadeUp 0.9s ease both;
+        }
+
+        .hero-names {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: clamp(3.2rem, 14vw, 6rem);
+            line-height: 1;
+            color: var(--deep-green);
+            animation: fadeUp 0.9s 0.08s ease both;
+        }
+
+        .hero-amp {
+            display: block;
+            font-size: 0.55em;
+            color: var(--sand);
+            line-height: 1.1;
+            margin: 4px 0;
+        }
+
+        .hero-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.95rem, 3vw, 1.15rem);
+            font-style: italic;
+            color: var(--text-light);
+            max-width: 360px;
+            margin: 20px auto 0;
+            animation: fadeUp 0.9s 0.16s ease both;
+        }
+
+        /* Ornament */
+        .ornament {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+            margin: 28px 0;
+            animation: fadeUp 0.9s 0.22s ease both;
+        }
+
+        .ornament-line {
+            width: 40px;
+            height: 1px;
+            background: var(--sand);
+        }
+
+        .ornament-diamond {
+            width: 6px;
+            height: 6px;
+            background: var(--sand);
+            transform: rotate(45deg);
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            justify-content: center;
+            margin-bottom: 44px;
+            animation: fadeUp 0.9s 0.30s ease both;
+        }
+
+        .c-unit {
+            text-align: center;
+            padding: 0 18px;
+        }
+
+        .c-num {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: clamp(2.2rem, 8vw, 3rem);
+            color: var(--deep-green);
+            line-height: 1;
+        }
+
+        .c-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        .c-sep {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--sand);
+            opacity: 0.5;
+            align-self: flex-start;
+            margin-top: 4px;
+            line-height: 1;
+        }
+
+        /* Hero buttons */
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            animation: fadeUp 0.9s 0.38s ease both;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background: var(--deep-green);
+            color: white;
+            text-decoration: none;
+            padding: 16px 42px;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background 0.25s, transform 0.2s;
+        }
+
+        .btn-main:hover {
+            background: var(--mid-green);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: none;
+            border: none;
+            font-family: 'Jost', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            cursor: pointer;
+            text-decoration: none;
+            border-bottom: 1px solid var(--sand);
+            padding-bottom: 2px;
+            transition: color 0.2s;
+        }
+
+        .btn-ghost:hover {
+            color: var(--deep-green);
+        }
+
+        .hero-note {
+            margin-top: 36px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            animation: fadeUp 0.9s 0.46s ease both;
+        }
+
+        /* ────────────── SECTIONS ────────────── */
+        .section-wrap {
+            padding: 88px 28px;
+        }
+
+        .section-wrap.alt {
+            background: var(--ivory-dark);
+        }
+
+        .section-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .s-eyebrow {
+            display: block;
+            font-size: 0.63rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sand);
+            margin-bottom: 14px;
+        }
+
+        .s-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: clamp(1.9rem, 7vw, 2.7rem);
+            color: var(--deep-green);
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .s-title em {
+            font-style: italic;
+        }
+
+        .s-rule {
+            width: 44px;
+            height: 1px;
+            background: var(--sand);
+            margin-bottom: 36px;
+        }
+
+        /* ────────────── TIMELINE ────────────── */
+        .timeline {
+            position: relative;
+            padding-left: 36px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 6px;
+            bottom: 6px;
+            width: 1px;
+            background: linear-gradient(
+                    to bottom,
+                    transparent 0%,
+                    var(--light-sage) 8%,
+                    var(--light-sage) 92%,
+                    transparent 100%
+            );
+        }
+
+        .t-item {
+            position: relative;
+            margin-bottom: 52px;
+        }
+
+        .t-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .t-dot {
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1.5px solid var(--sage);
+            background: var(--ivory-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .t-dot::after {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--sage);
+        }
+
+        .t-dot.gold {
+            border-color: var(--sand);
+        }
+
+        .t-dot.gold::after {
+            background: var(--sand);
+        }
+
+        .t-time {
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 6px;
+        }
+
+        .t-time.gold-text {
+            color: var(--sand);
+        }
+
+        .t-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--deep-green);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .t-body {
+            font-size: 0.87rem;
+            color: var(--text-light);
+            line-height: 1.75;
+        }
+
+        .t-address {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 7px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text);
+            margin: 10px 0 4px;
+        }
+
+        .t-note {
+            display: flex;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        .t-note::before {
+            content: '—';
+            color: var(--sand);
+            flex-shrink: 0;
+        }
+
+        .t-closing {
+            margin-top: 14px;
+            padding: 22px 22px;
+            border-left: 3px solid var(--sand);
+            background: linear-gradient(135deg, rgba(196, 168, 122, 0.06), transparent);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--deep-green);
+            line-height: 1.65;
+        }
+
+        /* GPS button */
+        .btn-gps {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            padding: 11px 20px;
+            background: transparent;
+            border: 1px solid var(--sage);
+            color: var(--sage);
+            font-family: 'Jost', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.22s;
+        }
+
+        .btn-gps:hover {
+            background: var(--deep-green);
+            border-color: var(--deep-green);
+            color: white;
+        }
+
+        /* ────────────── INFO CARDS ────────────── */
+        .info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .info-card {
+            position: relative;
+            padding: 24px 24px 22px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: attr(data-num);
+            position: absolute;
+            top: 10px;
+            right: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--deep-green);
+            opacity: 0.05;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .ic-tag {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--sand);
+            margin-bottom: 8px;
+        }
+
+        .ic-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--deep-green);
+            margin-bottom: 6px;
+        }
+
+        .ic-addr {
+            font-size: 0.84rem;
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        .ic-note {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 0.79rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* ────────────── VOYAGE ────────────── */
+        .voyage-quote {
+            padding: 26px 26px;
+            background: linear-gradient(135deg, rgba(42, 64, 53, 0.04), rgba(196, 168, 122, 0.07));
+            border: 1px solid rgba(196, 168, 122, 0.28);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--deep-green);
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+
+        .voyage-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.85;
+            border-left: 2px solid var(--sand);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        .v-subtitle {
+            font-size: 0.63rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 16px;
+        }
+
+        .flight-list {
+            margin-bottom: 36px;
+        }
+
+        .flight-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .flight-row:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .flight-icon {
+            font-size: 1.15rem;
+            color: var(--sand);
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .flight-info {
+            flex: 1;
+        }
+
+        .flight-cities {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--deep-green);
+        }
+
+        .flight-time {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+        .map-wrap { margin-bottom:40px;border:1px solid var(--border);background:var(--white);overflow:hidden; }
+        .map-header { padding:12px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px; }
+        .map-dot { width:8px;height:8px;border-radius:50%;background:var(--sage); }
+        .map-title { font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-light); }
+        .flight-date {
+            font-size: 0.72rem;
+            color: var(--text-light);
+            text-align: right;
+            min-width: 54px;
+        }
+
+        .accomm-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 12px;
+            margin-bottom: 40px;
+        }
+
+        .activities {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .activity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 15px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            font-size: 0.82rem;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .activity::before {
+            content: '✦';
+            color: var(--sand);
+            font-size: 0.48rem;
+            flex-shrink: 0;
+        }
+
+        /* ────────────── FOOTER ────────────── */
+        footer {
+            background: var(--deep-green);
+            padding: 56px 28px 48px;
+            text-align: center;
+        }
+
+        .footer-names {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 6px;
+        }
+
+        .footer-date {
+            font-size: 0.65rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 24px;
+        }
+
+        .footer-msg {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.45);
+            max-width: 300px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Leaf footer decoration */
+        .footer-leaf {
+            width: 80px;
+            opacity: 0.08;
+            margin: 0 auto 24px;
+            fill: white;
+        }
+
+        /* ────────────── GPS MODAL ────────────── */
+        .modal-bg {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 15, 12, 0.65);
+            z-index: 300;
+            align-items: flex-end;
+            backdrop-filter: blur(6px);
+        }
+
+        .modal-bg.open {
+            display: flex;
+        }
+
+        .modal-sheet {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--ivory);
+            border-radius: 18px 18px 0 0;
+            padding: 20px 24px 36px;
+            animation: sheetUp 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .modal-handle {
+            width: 40px;
+            height: 3.5px;
+            background: rgba(42, 64, 53, 0.2);
+            border-radius: 2px;
+            margin: 0 auto 24px;
+        }
+
+        .modal-head {
+            margin-bottom: 22px;
+        }
+
+        .modal-label {
+            font-size: 0.63rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--sand);
+            margin-bottom: 4px;
+        }
+
+        .modal-addr-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--deep-green);
+        }
+
+        .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .modal-opt {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 18px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .modal-opt:hover {
+            border-color: var(--sage);
+            background: rgba(92, 122, 102, 0.04);
+        }
+
+        .modal-opt-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .modal-opt-name {
+            font-size: 0.92rem;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .modal-cancel {
+            width: 100%;
+            margin-top: 12px;
+            padding: 14px;
+            background: transparent;
+            border: 1px solid var(--border);
+            font-family: 'Jost', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-cancel:hover {
+            border-color: var(--deep-green);
+            color: var(--deep-green);
+        }
+
+        /* ────────────── ANIMATIONS ────────────── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes sheetUp {
+            from {
+                transform: translateY(60px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ────────────── RESPONSIVE ────────────── */
+        @media (max-width: 560px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-burger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 90px 22px 56px;
+            }
+
+            .section-wrap {
+                padding: 70px 22px;
+            }
+
+            .activities {
+                grid-template-columns: 1fr;
+            }
+
+            .c-unit {
+                padding: 0 12px;
+            }
+        }
+
+        @media (min-width: 561px) {
+            .nav-drawer {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <!-- ═══════════════ NAV ═══════════════ -->
 <nav>
-  <div class="nav-brand">Laury-Ann & Cédric</div>
-  <ul class="nav-links">
-    <li><a href="#programme">Programme</a></li>
-    <li><a href="#infos">Infos pratiques</a></li>
-    <li><a href="#voyage">Voyage de noces</a></li>
-  </ul>
-  <button class="nav-burger" id="burger" aria-label="Menu" onclick="toggleBurger()">
-    <span></span><span></span><span></span>
-  </button>
+    <div class="nav-brand">Laury-Ann & Cédric</div>
+    <ul class="nav-links">
+        <li><a href="#programme">Programme</a></li>
+        <li><a href="#infos">Infos pratiques</a></li>
+        <li><a href="#voyage">Voyage de noces</a></li>
+    </ul>
+    <button class="nav-burger" id="burger" aria-label="Menu" onclick="toggleBurger()">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
 
 <div class="nav-drawer" id="drawer">
-  <a href="#programme"  onclick="closeBurger()">Programme</a>
-  <a href="#infos"      onclick="closeBurger()">Infos pratiques</a>
-  <a href="#soiree"     onclick="closeBurger()">La soirée</a>
-  <a href="#voyage"     onclick="closeBurger()">Voyage de noces</a>
+    <a href="#programme" onclick="closeBurger()">Programme</a>
+    <a href="#infos" onclick="closeBurger()">Infos pratiques</a>
+    <a href="#soiree" onclick="closeBurger()">La soirée</a>
+    <a href="#voyage" onclick="closeBurger()">Voyage de noces</a>
 </div>
 
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero" id="accueil">
 
-  <!-- Tropical leaf decorations -->
-  <svg class="leaf leaf-tl" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
-    <path d="M100 0 C60 60 10 140 10 220 C10 320 55 420 100 420 C145 420 190 320 190 220 C190 140 140 60 100 0Z"/>
-    <line x1="100" y1="0" x2="100" y2="420" stroke="currentColor" stroke-width="1.5" fill="none"/>
-    <path d="M30 140 Q100 180 170 140" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M18 220 Q100 255 182 220" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M28 300 Q100 330 172 300" stroke="currentColor" stroke-width="1" fill="none"/>
-  </svg>
+    <!-- Tropical leaf decorations -->
+    <svg class="leaf leaf-tl" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0 C60 60 10 140 10 220 C10 320 55 420 100 420 C145 420 190 320 190 220 C190 140 140 60 100 0Z"/>
+        <line x1="100" y1="0" x2="100" y2="420" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <path d="M30 140 Q100 180 170 140" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M18 220 Q100 255 182 220" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M28 300 Q100 330 172 300" stroke="currentColor" stroke-width="1" fill="none"/>
+    </svg>
 
-  <svg class="leaf leaf-br" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
-    <path d="M100 0 C60 60 10 140 10 220 C10 320 55 420 100 420 C145 420 190 320 190 220 C190 140 140 60 100 0Z"/>
-    <line x1="100" y1="0" x2="100" y2="420" stroke="currentColor" stroke-width="1.5" fill="none"/>
-    <path d="M30 140 Q100 180 170 140" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M18 220 Q100 255 182 220" stroke="currentColor" stroke-width="1" fill="none"/>
-    <path d="M28 300 Q100 330 172 300" stroke="currentColor" stroke-width="1" fill="none"/>
-  </svg>
+    <svg class="leaf leaf-br" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0 C60 60 10 140 10 220 C10 320 55 420 100 420 C145 420 190 320 190 220 C190 140 140 60 100 0Z"/>
+        <line x1="100" y1="0" x2="100" y2="420" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <path d="M30 140 Q100 180 170 140" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M18 220 Q100 255 182 220" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M28 300 Q100 330 172 300" stroke="currentColor" stroke-width="1" fill="none"/>
+    </svg>
 
-  <svg class="leaf leaf-ml" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
-    <path d="M100 0 C60 60 10 140 10 220 C10 320 55 420 100 420 C145 420 190 320 190 220 C190 140 140 60 100 0Z"/>
-  </svg>
+    <svg class="leaf leaf-ml" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0 C60 60 10 140 10 220 C10 320 55 420 100 420 C145 420 190 320 190 220 C190 140 140 60 100 0Z"/>
+    </svg>
 
-  <div class="hero-eyebrow">23 mai 2026 &nbsp;·&nbsp; Brugelette, Belgique</div>
+    <div class="hero-eyebrow">23 mai 2026 &nbsp;·&nbsp; Brugelette, Belgique</div>
 
-  <h1 class="hero-names">
-    Laury-Ann
-    <span class="hero-amp">&</span>
-    Cédric
-  </h1>
+    <h1 class="hero-names">
+        Laury-Ann
+        <span class="hero-amp">&</span>
+        Cédric
+    </h1>
 
-  <p class="hero-sub">Nous sommes si heureux de partager avec vous cette journée inoubliable.</p>
+    <p class="hero-sub">Nous sommes si heureux de partager avec vous cette journée inoubliable.</p>
 
-  <div class="ornament">
-    <div class="ornament-line"></div>
-    <div class="ornament-diamond"></div>
-    <div class="ornament-line"></div>
-  </div>
-
-  <div class="countdown">
-    <div class="c-unit">
-      <span class="c-num" id="c-days">--</span>
-      <div class="c-label">Jours</div>
+    <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line"></div>
     </div>
-    <div class="c-sep">·</div>
-    <div class="c-unit">
-      <span class="c-num" id="c-hours">--</span>
-      <div class="c-label">Heures</div>
-    </div>
-    <div class="c-sep">·</div>
-    <div class="c-unit">
-      <span class="c-num" id="c-mins">--</span>
-      <div class="c-label">Minutes</div>
-    </div>
-    <div class="c-sep">·</div>
-    <div class="c-unit">
-      <span class="c-num" id="c-secs" style="color:var(--sand);">--</span>
-      <div class="c-label">Secondes</div>
-    </div>
-  </div>
 
-  <div class="hero-actions">
-    <a href="#programme" class="btn-main">Voir le programme</a>
-    <a href="#voyage" class="btn-ghost">Découvrir notre voyage de noces</a>
-  </div>
+    <div class="countdown">
+        <div class="c-unit">
+            <span class="c-num" id="c-days">--</span>
+            <div class="c-label">Jours</div>
+        </div>
+        <div class="c-sep">·</div>
+        <div class="c-unit">
+            <span class="c-num" id="c-hours">--</span>
+            <div class="c-label">Heures</div>
+        </div>
+        <div class="c-sep">·</div>
+        <div class="c-unit">
+            <span class="c-num" id="c-mins">--</span>
+            <div class="c-label">Minutes</div>
+        </div>
+        <div class="c-sep">·</div>
+        <div class="c-unit">
+            <span class="c-num" id="c-secs" style="color:var(--sand);">--</span>
+            <div class="c-label">Secondes</div>
+        </div>
+    </div>
 
-  <p class="hero-note">Une urne sera disponible pour notre voyage de noces en Guadeloupe.</p>
+    <div class="hero-actions">
+        <a href="#programme" class="btn-main">Voir le programme</a>
+        <a href="#voyage" class="btn-ghost">Découvrir notre voyage de noces</a>
+    </div>
+
+    <p class="hero-note">Une urne sera disponible pour notre voyage de noces en Guadeloupe.</p>
 </section>
 
 
 <!-- ═══════════════ PROGRAMME ═══════════════ -->
 <div class="section-wrap alt" id="programme">
-  <div class="section-inner">
-    <span class="s-eyebrow reveal">La journée</span>
-    <h2 class="s-title reveal">Déroulé du programme</h2>
-    <div class="s-rule reveal"></div>
+    <div class="section-inner">
+        <span class="s-eyebrow reveal">La journée</span>
+        <h2 class="s-title reveal">Déroulé du programme</h2>
+        <div class="s-rule reveal"></div>
 
-    <div class="timeline">
+        <div class="timeline">
 
-      <!-- 12h00 -->
-      <div class="t-item reveal">
-        <div class="t-dot"></div>
-        <div class="t-time">12h00</div>
-        <div class="t-name">À la maison</div>
-        <div class="t-body">
-          <div class="t-address">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Clos Des Sahuteaux 14, 7940 Brugelette
-          </div>
-          <p style="margin-top:10px;">Point de départ de cette belle journée. C'est ici que les invités se retrouvent avant le départ en cortège vers la commune — et que les mariés se préparent chacun de leur côté pour un premier regard inoubliable.</p>
+            <!-- 12h00 -->
+            <div class="t-item reveal">
+                <div class="t-dot"></div>
+                <div class="t-time">12h00</div>
+                <div class="t-name">À la maison</div>
+                <div class="t-body">
+                    <div class="t-address">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Clos Des Sahuteaux 14, 7940 Brugelette
+                    </div>
+                    <p style="margin-top:10px;">Point de départ de cette belle journée. C'est ici que les invités se retrouvent avant le départ en cortège vers la commune — et que les mariés se préparent chacun de leur côté pour un premier regard inoubliable.</p>
+                </div>
+                <button class="btn-gps" onclick="openNav('Clos Des Sahuteaux 14, 7940 Brugelette, Belgique')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Itinéraire
+                </button>
+            </div>
+
+            <!-- 13h30 -->
+            <div class="t-item reveal">
+                <div class="t-dot"></div>
+                <div class="t-time">13h30</div>
+                <div class="t-name">Cérémonie civile</div>
+                <div class="t-body">
+                    <div class="t-address">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Grand'Place 2, 7940 Brugelette
+                    </div>
+                    <div class="t-note">Les places de parking à l'avant de la commune sont limitées.</div>
+                    <div class="t-note">Un parking est disponible à l'arrière.</div>
+                    <div class="t-note" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-style:italic;line-height:1.65;">À la sortie de la commune, nous vous invitons à privilégier les fleurs naturelles, les bulles ou toute autre petite attention délicate et élégante. Afin de préserver la beauté du moment et du lieu, merci d'éviter le riz, les fleurs artificielles et les accessoires du même type.</div>
+                </div>
+                <button class="btn-gps" onclick="openNav('Grand Place 2, 7940 Brugelette, Belgique')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Itinéraire
+                </button>
+            </div>
+
+            <!-- 14h30 -->
+            <div class="t-item reveal">
+                <div class="t-dot"></div>
+                <div class="t-time">14h30</div>
+                <div class="t-name">Séance photo & vin d'honneur</div>
+                <div class="t-body">
+                    <p>Les mariés rejoignent Pairi Daiza pour la séance photo. Les invités sont attendus directement à la salle de réception pour le vin d'honneur.</p>
+                    <div class="t-address" style="display:block;margin-top:12px;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:6px;">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Salle de réception — Rue Delmotte 62, 7870 Lens
+                    </div>
+                </div>
+                <button class="btn-gps" onclick="openNav('Rue Delmotte 62, 7870 Lens, Belgique')">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Itinéraire vers la salle
+                </button>
+            </div>
+
+            <!-- 16h00 -->
+            <div class="t-item reveal">
+                <div class="t-dot"></div>
+                <div class="t-time">16h00</div>
+                <div class="t-name">Arrivée des mariés à la salle</div>
+                <div class="t-body">
+                    <p>Après la séance photo à Pairi Daiza, les mariés rejoignent les invités à la salle de réception. Le vin d'honneur se poursuit ensemble, dans la joie des retrouvailles.</p>
+                </div>
+            </div>
+
+            <!-- 18h00 -->
+            <div class="t-item reveal">
+                <div class="t-dot"></div>
+                <div class="t-time">18h00</div>
+                <div class="t-name">Fin du vin d'honneur</div>
+                <div class="t-body">
+                    <p>Le vin d'honneur touche à sa fin. La suite de la soirée commence.</p>
+                </div>
+            </div>
+
+            <!-- Soirée - famille/amis uniquement -->
+            <div class="t-item reveal" id="soiree">
+                <div class="t-dot gold"></div>
+                <div class="t-time gold-text">À partir de 18h00</div>
+                <div class="t-name">La soirée continue&ensp;🎉</div>
+                <div class="t-body">
+                    <p>La soirée se poursuivra dans une ambiance festive, chaleureuse et mémorable. Musique, dîner et célébration — on vous dit à tout à l'heure !</p>
+                </div>
+            </div>
+
         </div>
-        <button class="btn-gps" onclick="openNav('Clos Des Sahuteaux 14, 7940 Brugelette, Belgique')">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Itinéraire
-        </button>
-      </div>
-
-      <!-- 13h30 -->
-      <div class="t-item reveal">
-        <div class="t-dot"></div>
-        <div class="t-time">13h30</div>
-        <div class="t-name">Cérémonie civile</div>
-        <div class="t-body">
-          <div class="t-address">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Grand'Place 2, 7940 Brugelette
-          </div>
-          <div class="t-note">Les places de parking à l'avant de la commune sont limitées.</div>
-          <div class="t-note">Un parking est disponible à l'arrière.</div>
-          <div class="t-note" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-style:italic;line-height:1.65;">À la sortie de la commune, nous vous invitons à privilégier les fleurs naturelles, les bulles ou toute autre petite attention délicate et élégante. Afin de préserver la beauté du moment et du lieu, merci d'éviter le riz, les fleurs artificielles et les accessoires du même type.</div>
-        </div>
-        <button class="btn-gps" onclick="openNav('Grand Place 2, 7940 Brugelette, Belgique')">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Itinéraire
-        </button>
-      </div>
-
-      <!-- 14h30 -->
-      <div class="t-item reveal">
-        <div class="t-dot"></div>
-        <div class="t-time">14h30</div>
-        <div class="t-name">Séance photo & vin d'honneur</div>
-        <div class="t-body">
-          <p>Les mariés rejoignent Pairi Daiza pour la séance photo. Les invités sont attendus directement à la salle de réception pour le vin d'honneur.</p>
-          <div class="t-address" style="display:block;margin-top:12px;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Salle de réception — Rue Delmotte 62, 7870 Lens
-          </div>
-        </div>
-        <button class="btn-gps" onclick="openNav('Rue Delmotte 62, 7870 Lens, Belgique')">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Itinéraire vers la salle
-        </button>
-      </div>
-
-      <!-- 16h00 -->
-      <div class="t-item reveal">
-        <div class="t-dot"></div>
-        <div class="t-time">16h00</div>
-        <div class="t-name">Arrivée des mariés à la salle</div>
-        <div class="t-body">
-          <p>Après la séance photo à Pairi Daiza, les mariés rejoignent les invités à la salle de réception. Le vin d'honneur se poursuit ensemble, dans la joie des retrouvailles.</p>
-        </div>
-      </div>
-
-      <!-- 18h00 -->
-      <div class="t-item reveal">
-        <div class="t-dot"></div>
-        <div class="t-time">18h00</div>
-        <div class="t-name">Fin du vin d'honneur</div>
-        <div class="t-body">
-          <p>Le vin d'honneur touche à sa fin. La suite de la soirée commence.</p>
-        </div>
-      </div>
-
-      <!-- Soirée - famille/amis uniquement -->
-      <div class="t-item reveal" id="soiree">
-        <div class="t-dot gold"></div>
-        <div class="t-time gold-text">À partir de 18h00</div>
-        <div class="t-name">La soirée continue&ensp;🎉</div>
-        <div class="t-body">
-          <p>La soirée se poursuivra dans une ambiance festive, chaleureuse et mémorable. Musique, dîner et célébration — on vous dit à tout à l'heure !</p>
-        </div>
-      </div>
-
     </div>
-  </div>
 </div>
 
 
 <!-- ═══════════════ INFOS PRATIQUES ═══════════════ -->
 <div class="section-wrap" id="infos">
-  <div class="section-inner">
-    <span class="s-eyebrow reveal">Comment y aller ?</span>
-    <h2 class="s-title reveal">Informations pratiques</h2>
-    <div class="s-rule reveal"></div>
+    <div class="section-inner">
+        <span class="s-eyebrow reveal">Comment y aller ?</span>
+        <h2 class="s-title reveal">Informations pratiques</h2>
+        <div class="s-rule reveal"></div>
 
-    <div class="info-grid">
+        <div class="info-grid">
 
-      <div class="info-card reveal" data-num="01">
-        <div class="ic-tag">Point de départ · 12h00</div>
-        <div class="ic-name">La maison</div>
-        <div class="ic-addr">Clos Des Sahuteaux 14<br>7940 Brugelette</div>
-        <button class="btn-gps" onclick="openNav('Clos Des Sahuteaux 14, 7940 Brugelette, Belgique')" style="margin-top:16px;">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Ouvrir l'itinéraire
-        </button>
-      </div>
+            <div class="info-card reveal" data-num="01">
+                <div class="ic-tag">Point de départ · 12h00</div>
+                <div class="ic-name">La maison</div>
+                <div class="ic-addr">Clos Des Sahuteaux 14<br>7940 Brugelette</div>
+                <button class="btn-gps" onclick="openNav('Clos Des Sahuteaux 14, 7940 Brugelette, Belgique')" style="margin-top:16px;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Ouvrir l'itinéraire
+                </button>
+            </div>
 
-      <div class="info-card reveal" data-num="02">
-        <div class="ic-tag">Cérémonie · 13h30</div>
-        <div class="ic-name">Commune de Brugelette</div>
-        <div class="ic-addr">Grand'Place 2<br>7940 Brugelette</div>
-        <div class="ic-note">⚠️ Parking limité à l'avant · Parking disponible à l'arrière de la commune.</div>
-        <button class="btn-gps" onclick="openNav('Grand Place 2, 7940 Brugelette, Belgique')" style="margin-top:16px;">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Ouvrir l'itinéraire
-        </button>
-      </div>
+            <div class="info-card reveal" data-num="02">
+                <div class="ic-tag">Cérémonie · 13h30</div>
+                <div class="ic-name">Commune de Brugelette</div>
+                <div class="ic-addr">Grand'Place 2<br>7940 Brugelette</div>
+                <div class="ic-note">⚠️ Parking limité à l'avant · Parking disponible à l'arrière de la commune.</div>
+                <button class="btn-gps" onclick="openNav('Grand Place 2, 7940 Brugelette, Belgique')" style="margin-top:16px;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Ouvrir l'itinéraire
+                </button>
+            </div>
 
-      <div class="info-card reveal" data-num="03">
-        <div class="ic-tag">Vin d'honneur & soirée · dès 14h30</div>
-        <div class="ic-name">Salle de réception</div>
-        <div class="ic-addr">Rue Delmotte 62<br>7870 Lens</div>
-        <button class="btn-gps" onclick="openNav('Rue Delmotte 62, 7870 Lens, Belgique')" style="margin-top:16px;">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Ouvrir l'itinéraire
-        </button>
-      </div>
+            <div class="info-card reveal" data-num="03">
+                <div class="ic-tag">Vin d'honneur & soirée · dès 14h30</div>
+                <div class="ic-name">Salle de réception</div>
+                <div class="ic-addr">Rue Delmotte 62<br>7870 Lens</div>
+                <button class="btn-gps" onclick="openNav('Rue Delmotte 62, 7870 Lens, Belgique')" style="margin-top:16px;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Ouvrir l'itinéraire
+                </button>
+            </div>
 
+        </div>
     </div>
-  </div>
 </div>
 
 
 <!-- ═══════════════ VOYAGE DE NOCES ═══════════════ -->
 <div class="section-wrap alt" id="voyage">
-  <div class="section-inner">
-    <span class="s-eyebrow reveal">Notre aventure</span>
-    <h2 class="s-title reveal">Voyage de noces<br><em>en Guadeloupe</em></h2>
-    <div class="s-rule reveal"></div>
+    <div class="section-inner">
+        <span class="s-eyebrow reveal">Notre aventure</span>
+        <h2 class="s-title reveal">Voyage de noces<br><em>en Guadeloupe</em></h2>
+        <div class="s-rule reveal"></div>
 
-    <div class="voyage-quote reveal">
-      "Le plus beau des cadeaux sera de partager cette journée avec vous. Et pour celles et ceux qui souhaitent participer davantage, une urne sera disponible pour nous accompagner dans notre voyage de noces en Guadeloupe."
-    </div>
-
-    <p class="voyage-desc reveal">
-      Pour notre voyage de noces, nous rêvons de découvrir la Guadeloupe entre nature tropicale, paysages volcaniques, lagons et petites escapades en bateau. Nous prévoyons de parcourir la Soufrière, visiter plusieurs îles de l'archipel et explorer la mangrove en kayak.
-    </p>
-
-    <div class="reveal">
-      <div class="v-subtitle">Nos dates de voyage</div>
-      <div class="flight-list">
-        <div class="flight-row">
-          <div class="flight-icon">✈</div>
-          <div class="flight-info">
-            <div class="flight-cities">Paris Orly &rarr; Pointe-à-Pitre</div>
-            <div class="flight-time">Départ 10h50 &nbsp;·&nbsp; Arrivée 13h35 heure locale</div>
-          </div>
-          <div class="flight-date">26 mai</div>
+        <div class="voyage-quote reveal">
+            "Le plus beau des cadeaux sera de partager cette journée avec vous. Et pour celles et ceux qui souhaitent participer davantage, une urne sera disponible pour nous accompagner dans notre voyage de noces en Guadeloupe."
         </div>
-        <div class="flight-row">
-          <div class="flight-icon" style="transform:scaleX(-1);">✈</div>
-          <div class="flight-info">
-            <div class="flight-cities">Pointe-à-Pitre &rarr; Paris Orly</div>
-            <div class="flight-time">Départ 16h30 heure locale &nbsp;·&nbsp; Arrivée 6h40</div>
-          </div>
-          <div class="flight-date">9&ndash;10 juin</div>
-        </div>
-      </div>
-      <p class="accomm-note">Hébergement : Pierre &amp; Vacances · Guadeloupe</p>
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Ei1N3r9T2l0JhoR6JEpxFyvF1JQz5BY&ehbc=2E312F" width="640" height="480"></iframe>
-    </div>
 
-    <div class="reveal">
-      <div class="v-subtitle">Au programme</div>
-      <div class="activities">
-        <div class="activity">Volcan de la Soufrière</div>
-        <div class="activity">Visite des Saintes</div>
-        <div class="activity">Découverte de Basse-Terre</div>
-        <div class="activity">Découverte de Grande-Terre</div>
-        <div class="activity">Excursion à La Désirade</div>
-        <div class="activity">Mangrove en kayak</div>
-        <div class="activity">Îlet du Gosier</div>
-      </div>
+        <p class="voyage-desc reveal">
+            Pour notre voyage de noces, nous rêvons de découvrir la Guadeloupe entre nature tropicale, paysages volcaniques, lagons et petites escapades en bateau. Nous prévoyons de parcourir la Soufrière, visiter plusieurs îles de l'archipel et explorer la mangrove en kayak.
+        </p>
+
+        <div class="reveal">
+            <div class="v-subtitle">Nos dates de voyage</div>
+            <div class="flight-list">
+                <div class="flight-row">
+                    <div class="flight-icon">✈</div>
+                    <div class="flight-info">
+                        <div class="flight-cities">Paris Orly &rarr; Pointe-à-Pitre</div>
+                        <div class="flight-time">Départ 10h50 &nbsp;·&nbsp; Arrivée 13h35 heure locale</div>
+                    </div>
+                    <div class="flight-date">26 mai</div>
+                </div>
+                <div class="flight-row">
+                    <div class="flight-icon" style="transform:scaleX(-1);">✈</div>
+                    <div class="flight-info">
+                        <div class="flight-cities">Pointe-à-Pitre &rarr; Paris Orly</div>
+                        <div class="flight-time">Départ 16h30 heure locale &nbsp;·&nbsp; Arrivée 6h40</div>
+                    </div>
+                    <div class="flight-date">9&ndash;10 juin</div>
+                </div>
+            </div>
+            <p class="accomm-note">Hébergement : Pierre &amp; Vacances · Guadeloupe</p>
+        </div>
+        <!-- SVG MAP -->
+        <div class="map-wrap reveal">
+            <div class="map-header">
+                <div class="map-dot"></div>
+                <div class="map-title">Carte des lieux · Brugelette &amp; Lens</div>
+            </div>
+            <div style="position:relative;width:100%;padding-bottom:56%;overflow:hidden;">
+                <iframe
+                        src="https://www.google.com/maps/d/u/0/embed?mid=1Ei1N3r9T2l0JhoR6JEpxFyvF1JQz5BY&ehbc=2E312F"
+                        style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                        allowfullscreen
+                        loading="lazy">
+                </iframe>
+            </div>
+        </div>
+        <div class="reveal">
+            <div class="v-subtitle">Au programme</div>
+            <div class="activities">
+                <div class="activity">Volcan de la Soufrière</div>
+                <div class="activity">Visite des Saintes</div>
+                <div class="activity">Découverte de Basse-Terre</div>
+                <div class="activity">Découverte de Grande-Terre</div>
+                <div class="activity">Excursion à La Désirade</div>
+                <div class="activity">Mangrove en kayak</div>
+                <div class="activity">Îlet du Gosier</div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
-  <svg class="footer-leaf" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
-    <path d="M100 0 C60 60 10 140 10 220 C10 320 55 420 100 420 C145 420 190 320 190 220 C190 140 140 60 100 0Z"/>
-    <line x1="100" y1="0" x2="100" y2="420" stroke="white" stroke-width="2" fill="none"/>
-    <path d="M30 140 Q100 180 170 140" stroke="white" stroke-width="1" fill="none"/>
-    <path d="M18 220 Q100 255 182 220" stroke="white" stroke-width="1" fill="none"/>
-  </svg>
-  <div class="footer-names">Laury-Ann & Cédric</div>
-  <div class="footer-date">23 mai 2026 &nbsp;·&nbsp; Brugelette</div>
-  <p class="footer-msg">Merci d'être là et de partager avec nous ce moment si précieux.</p>
+    <svg class="footer-leaf" viewBox="0 0 200 420" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0 C60 60 10 140 10 220 C10 320 55 420 100 420 C145 420 190 320 190 220 C190 140 140 60 100 0Z"/>
+        <line x1="100" y1="0" x2="100" y2="420" stroke="white" stroke-width="2" fill="none"/>
+        <path d="M30 140 Q100 180 170 140" stroke="white" stroke-width="1" fill="none"/>
+        <path d="M18 220 Q100 255 182 220" stroke="white" stroke-width="1" fill="none"/>
+    </svg>
+    <div class="footer-names">Laury-Ann & Cédric</div>
+    <div class="footer-date">23 mai 2026 &nbsp;·&nbsp; Brugelette</div>
+    <p class="footer-msg">Merci d'être là et de partager avec nous ce moment si précieux.</p>
 </footer>
 
 
 <!-- ═══════════════ GPS MODAL ═══════════════ -->
 <div class="modal-bg" id="modalBg" onclick="onOverlayClick(event)">
-  <div class="modal-sheet">
-    <div class="modal-handle"></div>
-    <div class="modal-head">
-      <div class="modal-label">Ouvrir l'itinéraire vers</div>
-      <div class="modal-addr-text" id="modalAddr"></div>
+    <div class="modal-sheet">
+        <div class="modal-handle"></div>
+        <div class="modal-head">
+            <div class="modal-label">Ouvrir l'itinéraire vers</div>
+            <div class="modal-addr-text" id="modalAddr"></div>
+        </div>
+        <div class="modal-options">
+            <a class="modal-opt" id="linkGmaps" href="#" target="_blank" rel="noopener" onclick="closeModal()">
+                <div class="modal-opt-icon" style="background:#E8F5E9;">🗺️</div>
+                <div class="modal-opt-name">Google Maps</div>
+            </a>
+            <a class="modal-opt" id="linkWaze" href="#" target="_blank" rel="noopener" onclick="closeModal()">
+                <div class="modal-opt-icon" style="background:#E3F2FD;">🔵</div>
+                <div class="modal-opt-name">Waze</div>
+            </a>
+            <a class="modal-opt" id="linkApple" href="#" target="_blank" rel="noopener" onclick="closeModal()">
+                <div class="modal-opt-icon" style="background:#FFF3E0;">🍎</div>
+                <div class="modal-opt-name">Plans (Apple Maps)</div>
+            </a>
+        </div>
+        <button class="modal-cancel" onclick="closeModal()">Annuler</button>
     </div>
-    <div class="modal-options">
-      <a class="modal-opt" id="linkGmaps" href="#" target="_blank" rel="noopener" onclick="closeModal()">
-        <div class="modal-opt-icon" style="background:#E8F5E9;">🗺️</div>
-        <div class="modal-opt-name">Google Maps</div>
-      </a>
-      <a class="modal-opt" id="linkWaze" href="#" target="_blank" rel="noopener" onclick="closeModal()">
-        <div class="modal-opt-icon" style="background:#E3F2FD;">🔵</div>
-        <div class="modal-opt-name">Waze</div>
-      </a>
-      <a class="modal-opt" id="linkApple" href="#" target="_blank" rel="noopener" onclick="closeModal()">
-        <div class="modal-opt-icon" style="background:#FFF3E0;">🍎</div>
-        <div class="modal-opt-name">Plans (Apple Maps)</div>
-      </a>
-    </div>
-    <button class="modal-cancel" onclick="closeModal()">Annuler</button>
-  </div>
 </div>
 
 
 <script>
-/* ── COUNTDOWN ── */
-function tick() {
-  const target = new Date('2026-05-23T12:00:00');
-  const now    = new Date();
-  const diff   = target - now;
-  if (diff <= 0) {
-    document.getElementById('c-days').textContent  = '00';
-    document.getElementById('c-hours').textContent = '00';
-    document.getElementById('c-mins').textContent  = '00';
-    document.getElementById('c-secs').textContent  = '00';
-    return;
-  }
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000)  / 60000);
-  const s = Math.floor((diff % 60000)    / 1000);
-  const pad = n => String(n).padStart(2,'0');
-  document.getElementById('c-days').textContent  = pad(d);
-  document.getElementById('c-hours').textContent = pad(h);
-  document.getElementById('c-mins').textContent  = pad(m);
-  document.getElementById('c-secs').textContent  = pad(s);
-}
-tick();
-setInterval(tick, 1000);
-
-/* ── NAV MOBILE ── */
-function toggleBurger() {
-  const burger = document.getElementById('burger');
-  const drawer = document.getElementById('drawer');
-  burger.classList.toggle('active');
-  drawer.classList.toggle('open');
-  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
-}
-function closeBurger() {
-  document.getElementById('burger').classList.remove('active');
-  document.getElementById('drawer').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-/* ── GPS MODAL ── */
-function openNav(address) {
-  const enc = encodeURIComponent(address);
-  document.getElementById('modalAddr').textContent   = address;
-  document.getElementById('linkGmaps').href  = `https://www.google.com/maps/dir/?api=1&destination=${enc}`;
-  document.getElementById('linkWaze').href   = `https://waze.com/ul?q=${enc}&navigate=yes`;
-  document.getElementById('linkApple').href  = `https://maps.apple.com/?daddr=${enc}`;
-  document.getElementById('modalBg').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modalBg').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function onOverlayClick(e) {
-  if (e.target === document.getElementById('modalBg')) closeModal();
-}
-
-/* ── SCROLL REVEAL ── */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      e.target.style.transitionDelay = (i * 0.05) + 's';
-      e.target.classList.add('in');
-      io.unobserve(e.target);
+    /* ── COUNTDOWN ── */
+    function tick() {
+        const target = new Date('2026-05-23T12:00:00');
+        const now = new Date();
+        const diff = target - now;
+        if (diff <= 0) {
+            document.getElementById('c-days').textContent = '00';
+            document.getElementById('c-hours').textContent = '00';
+            document.getElementById('c-mins').textContent = '00';
+            document.getElementById('c-secs').textContent = '00';
+            return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        const pad = n => String(n).padStart(2, '0');
+        document.getElementById('c-days').textContent = pad(d);
+        document.getElementById('c-hours').textContent = pad(h);
+        document.getElementById('c-mins').textContent = pad(m);
+        document.getElementById('c-secs').textContent = pad(s);
     }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    tick();
+    setInterval(tick, 1000);
+
+    /* ── NAV MOBILE ── */
+    function toggleBurger() {
+        const burger = document.getElementById('burger');
+        const drawer = document.getElementById('drawer');
+        burger.classList.toggle('active');
+        drawer.classList.toggle('open');
+        document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+    }
+
+    function closeBurger() {
+        document.getElementById('burger').classList.remove('active');
+        document.getElementById('drawer').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    /* ── GPS MODAL ── */
+    function openNav(address) {
+        const enc = encodeURIComponent(address);
+        document.getElementById('modalAddr').textContent = address;
+        document.getElementById('linkGmaps').href = `https://www.google.com/maps/dir/?api=1&destination=${enc}`;
+        document.getElementById('linkWaze').href = `https://waze.com/ul?q=${enc}&navigate=yes`;
+        document.getElementById('linkApple').href = `https://maps.apple.com/?daddr=${enc}`;
+        document.getElementById('modalBg').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('modalBg').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function onOverlayClick(e) {
+        if (e.target === document.getElementById('modalBg')) closeModal();
+    }
+
+    /* ── SCROLL REVEAL ── */
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                e.target.style.transitionDelay = (i * 0.05) + 's';
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+            }
+        });
+    }, {threshold: 0.1, rootMargin: '0px 0px -30px 0px'});
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 
 </body>
