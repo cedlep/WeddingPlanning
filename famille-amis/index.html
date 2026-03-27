@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -705,10 +705,36 @@
             color: var(--text-light);
             margin-top: 2px;
         }
-        .map-wrap { margin-bottom:40px;border:1px solid var(--border);background:var(--white);overflow:hidden; }
-        .map-header { padding:12px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px; }
-        .map-dot { width:8px;height:8px;border-radius:50%;background:var(--sage); }
-        .map-title { font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-light); }
+
+        .map-wrap {
+            margin-bottom: 40px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .map-header {
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .map-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--sage);
+        }
+
+        .map-title {
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
         .flight-date {
             font-size: 0.72rem;
             color: var(--text-light);
@@ -1127,15 +1153,15 @@
                 <div class="t-dot"></div>
                 <div class="t-time">14h30</div>
                 <div class="t-name">Séance photo & vin d'honneur</div>
+                <div class="t-address" style="display:block;margin-top:12px;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:6px;">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    Salle de réception — Rue Delmotte 62, 7870 Lens
+                </div>
                 <div class="t-body">
                     <p>Les mariés rejoignent Pairi Daiza pour la séance photo. Les invités sont attendus directement à la salle de réception pour le vin d'honneur.</p>
-                    <div class="t-address" style="display:block;margin-top:12px;">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:6px;">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                        Salle de réception — Rue Delmotte 62, 7870 Lens
-                    </div>
                 </div>
                 <button class="btn-gps" onclick="openNav('Rue Delmotte 62, 7870 Lens, Belgique')">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1155,24 +1181,13 @@
                     <p>Après la séance photo à Pairi Daiza, les mariés rejoignent les invités à la salle de réception. Le vin d'honneur se poursuit ensemble, dans la joie des retrouvailles.</p>
                 </div>
             </div>
-
-            <!-- 18h00 -->
-            <div class="t-item reveal">
-                <div class="t-dot"></div>
-                <div class="t-time">18h00</div>
-                <div class="t-name">Fin du vin d'honneur</div>
-                <div class="t-body">
-                    <p>Le vin d'honneur touche à sa fin. La suite de la soirée commence.</p>
-                </div>
-            </div>
-
             <!-- Soirée - famille/amis uniquement -->
             <div class="t-item reveal" id="soiree">
                 <div class="t-dot gold"></div>
-                <div class="t-time gold-text">À partir de 18h00</div>
+                <div class="t-time gold-text">À partir de 17h00</div>
                 <div class="t-name">La soirée continue&ensp;🎉</div>
                 <div class="t-body">
-                    <p>La soirée se poursuivra dans une ambiance festive, chaleureuse et mémorable. Musique, dîner et célébration — on vous dit à tout à l'heure !</p>
+                    <p>La soirée se poursuivra dans une ambiance festive, chaleureuse et mémorable. Musique, dîner et célébration !</p>
                 </div>
             </div>
 
@@ -1270,7 +1285,46 @@
                     <div class="flight-date">9&ndash;10 juin</div>
                 </div>
             </div>
-            <p class="accomm-note">Hébergement : Pierre &amp; Vacances · Guadeloupe</p>
+
+            <div class="v-subtitle" style="margin-top:36px;">Hébergements</div>
+            <div class="flight-list">
+                <div class="flight-row">
+                    <div class="flight-icon">🌺</div>
+                    <div class="flight-info">
+                        <div class="flight-cities">Jardin Malanga</div>
+                        <div class="flight-time">Bouillante &nbsp;·&nbsp; 4 nuits</div>
+                    </div>
+                    <div class="flight-date">26/05/26 - 29/05/26</div>
+                </div>
+                <div class="flight-row">
+                    <div class="flight-icon">🌿</div>
+                    <div class="flight-info">
+                        <div class="flight-cities">Les Jardins de l'Espérance</div>
+                        <div class="flight-time">Trois-Rivières &nbsp;·&nbsp; 4 nuits</div>
+                    </div>
+                    <div class="flight-date">29/05/26 - 03/06/26</div>
+                </div>
+                <div class="flight-row">
+                    <div class="flight-icon">🏡</div>
+                    <div class="flight-info">
+                        <div class="flight-cities">Pierre &amp; Vacances</div>
+                        <div class="flight-time">Sainte-Anne &nbsp;·&nbsp; 4 nuits</div>
+                    </div>
+                    <div class="flight-date">03/06/26 - 09/06/26</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="reveal">
+        <div class="v-subtitle">Au programme</div>
+        <div class="activities">
+            <div class="activity">Ascension du volcan de la Soufrière</div>
+            <div class="activity">Jardin Botanique de Deshaies</div>
+            <div class="activity">Maison du cacao</div>
+            <div class="activity">Distillerie Longueteau</div>
+            <div class="activity">Découverte des différentes îles</div>
+            <div class="activity">Plages et détente</div>
+            <div class="activity">Cascade aux écrevisses</div>
         </div>
         <!-- SVG MAP -->
         <div class="map-wrap reveal">
@@ -1287,19 +1341,8 @@
                 </iframe>
             </div>
         </div>
-        <div class="reveal">
-            <div class="v-subtitle">Au programme</div>
-            <div class="activities">
-                <div class="activity">Volcan de la Soufrière</div>
-                <div class="activity">Visite des Saintes</div>
-                <div class="activity">Découverte de Basse-Terre</div>
-                <div class="activity">Découverte de Grande-Terre</div>
-                <div class="activity">Excursion à La Désirade</div>
-                <div class="activity">Mangrove en kayak</div>
-                <div class="activity">Îlet du Gosier</div>
-            </div>
-        </div>
     </div>
+</div>
 </div>
 
 
